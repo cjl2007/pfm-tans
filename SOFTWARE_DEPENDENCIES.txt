@@ -1,0 +1,76 @@
+PFM-TANS Software Dependencies
+==========================
+
+Core assumptions
+- OS: Linux environment with standard shell utilities
+- MATLAB: required
+- SimNIBS: required for head modeling and TMS E-field simulation
+- Connectome Workbench (`wb_command`): required
+- FreeSurfer utilities: required
+- FSL utilities: required
+
+External software
+- MATLAB
+  - Required toolboxes depend on your local installation and SimNIBS integration.
+  - Verify with: `matlab -batch "disp(version)"`
+- SimNIBS 4.x
+  - Required commands/libraries used by PFM-TANS include `charm`, `run_simnibs`, and MATLAB mesh helpers.
+  - Verify with: `charm --version`
+- Connectome Workbench
+  - Required command: `wb_command`
+  - Verify with: `wb_command -version`
+- FreeSurfer
+  - Required commands include `mri_binarize`, `mri_tessellate`, `mris_convert`
+  - Verify with: `mri_binarize --help`
+- FSL
+  - Required commands include `fslmaths`, `fslmerge`
+  - Verify with: `fslmaths -version`
+- Python
+  - Used for BrainSight export/import helpers through the SimNIBS Python environment
+  - Verify with the config-selected Python executable: `python3 --version`
+
+MATLAB/runtime expectations
+- PFM-TANS is MATLAB-first. The entrypoints are `.m` functions.
+- The repo expects subject data in a structure that includes:
+  - `anat/T1w`
+  - `anat/T2w` if a T2 is used
+  - `anat/MNINonLinear/fsaverage_LR32k`
+  - functional PFM outputs referenced by config
+
+PFM-TANS repo configuration expectations
+- Machine-specific paths live in config files:
+  - `cfg.paths.resourcesRoot`
+  - `cfg.paths.mscRoot`
+  - `cfg.paths.simnibsRoot`
+  - `cfg.paths.tansRoot`
+  - `cfg.paths.searchSpace`
+- Main workflow example configs are under `config/`
+
+Installation order
+1. Install MATLAB.
+2. Install SimNIBS and confirm MATLAB integration works.
+3. Install Connectome Workbench and ensure `wb_command` is on `PATH`.
+4. Install FreeSurfer and ensure required binaries are on `PATH`.
+5. Install FSL and ensure required binaries are on `PATH`.
+6. Clone PFM-TANS and edit a config in `config/`.
+
+Validation checklist
+- `matlab -batch "addpath(genpath('/path/to/pfm-tans')); disp(which('tans_run'))"`
+- `wb_command -version`
+- `charm --version`
+- `fslmaths -version`
+- `matlab -batch "addpath(genpath('/path/to/pfm-tans')); cfg=tans_config_bd2_salience(pwd); disp(cfg.target.maxCandidateTargets)"`
+
+Common failure modes
+- Missing executable on `PATH`
+  - Symptom: `system` calls fail inside head modeling, ROI, search-grid, or optimization stages.
+- SimNIBS MATLAB helpers not available
+  - Symptom: missing functions such as `mesh_load_gmsh4` or `sim_struct`.
+- Subject directory not in expected layout
+  - Symptom: preflight fails on missing anatomical or surface files.
+- Incorrect config path roots
+  - Symptom: preflight fails on `probMapsFile`, `searchSpace`, or coil model paths.
+- Missing or malformed tolerability data resources
+  - Symptom: tolerability-model construction fails before candidate scoring starts.
+- Missing subject EEG positions export
+  - Symptom: tolerability-model construction fails because `cfg.tolerability.eegPositionsFile` is absent or mislabeled.

@@ -1,0 +1,19 @@
+function repoDir = tans_add_repo_paths()
+%TANS_ADD_REPO_PATHS Add canonical PFM-TANS repo folders to the MATLAB path.
+
+repoDir = fileparts(fileparts(mfilename('fullpath')));
+
+pathDirs = { ...
+    repoDir, ...
+    fullfile(repoDir, 'bin'), ...
+    fullfile(repoDir, 'config'), ...
+    fullfile(repoDir, 'lib'), ...
+    fullfile(repoDir, 'modules'), ...
+    fullfile(repoDir, 'examples')};
+
+for i = 1:numel(pathDirs)
+    if exist(pathDirs{i}, 'dir') == 7
+        addpath(pathDirs{i});
+    end
+end
+end

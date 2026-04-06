@@ -1,0 +1,10 @@
+*.asv
+*.log
+*.mat
+*.fig
+*.png
+*.nii
+*.nii.gz
+*.gii
+*.stl
+__pycache__/

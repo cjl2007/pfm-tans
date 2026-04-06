@@ -1,0 +1,4 @@
+This directory contains the self-contained PFM-TANS release tree intended for GitHub publication.
+
+Refresh it from the development workspace with:
+  bash bin/build_release_tree.sh
