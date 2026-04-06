@@ -1,63 +1,76 @@
 # PFM-TANS
 
-PFM-TANS is a MATLAB-based workflow for personalized TMS targeting and E-field modeling from subject-specific anatomy and functional network maps. The scientific targeting logic from the original repository is preserved, but the repo is now organized as a configuration-driven package with clearer entrypoints, docs, provenance logging, support for multiple ranked candidate targets, and empirical tolerability-map scoring based on external TMS discomfort data.
+PFM-TANS is a MATLAB workflow for personalized TMS targeting and E-field modeling from subject-specific anatomy and functional network maps. This repository packages the original TANS method into a more configuration-driven, documented, and user-facing form, with clearer entrypoints, reproducible outputs, and support for multi-candidate targeting.
 
 ## Quick Start
 
-1. Install the external dependencies described in `SOFTWARE_DEPENDENCIES.txt` and [docs/INSTALL.md](docs/INSTALL.md).
-2. Edit or copy an example config from [config/tans_config_template_blank.m](config/tans_config_template_blank.m).
-3. Validate inputs:
+1. Install the external dependencies described in [SOFTWARE_DEPENDENCIES.txt](SOFTWARE_DEPENDENCIES.txt) and [docs/INSTALL.md](docs/INSTALL.md).
+2. Copy or edit a config from `config/`.
+3. Add the repo to the MATLAB path.
+4. Validate the subject/config before running.
+5. Run the main workflow.
 
 ```matlab
 addpath(genpath('/path/to/pfm-tans'));
 report = tans_validate('/path/to/subject', 'tans_config_bd2_salience');
-```
-
-4. Run the targeting workflow:
-
-```matlab
 outputs = tans_run('/path/to/subject', 'tans_config_bd2_salience');
 ```
 
-5. Enable multi-candidate mode by increasing:
+## Config Files
+
+All user-editable workflow settings are intended to live in `config/`.
+
+Main files:
+- [config/tans_config_template_blank.m](config/tans_config_template_blank.m): blank starting point for a new targeting config
+- [config/tans_config_multicandidate_example.m](config/tans_config_multicandidate_example.m): example showing backup candidate targets
+- [config/tans_workflow_defaults.m](config/tans_workflow_defaults.m): shared default settings used by targeting configs
+- [config/tans_dose_config_template_blank.m](config/tans_dose_config_template_blank.m): blank starting point for dose workflow configs
+
+Typical fields you will edit first:
+- `cfg.paths.resourcesRoot`
+- `cfg.paths.mscRoot`
+- `cfg.paths.simnibsRoot`
+- `cfg.paths.searchSpace`
+- `cfg.inputs.probMapsFile`
+- `cfg.tolerability.dataFile`
+- `cfg.tolerability.eegPositionsFile`
+- `cfg.target.name`
+- `cfg.target.networkColumn`
+- `cfg.target.offTargetColumn`
+- `cfg.target.maxCandidateTargets`
+
+To enable backup targets:
 
 ```matlab
 cfg.target.maxCandidateTargets = 3;
 ```
 
-## Repository Layout
+## Main Workflows
 
-- `bin/`: user-facing launchers
-- `config/`: example and template configs plus machine/workflow/target defaults
-- `modules/`: workflow stages such as ROI generation, search grid creation, simulation, and optimization
-- `lib/`: shared helpers for config loading, provenance, preflight checks, and tolerability metrics
-- `docs/`: installation and workflow documentation
-- `examples/`: example usage scripts
-- `release/pfm-tans/`: self-contained release tree intended for GitHub publication
-- `tests/`: lightweight smoke tests
-- `res0urces/`: bundled reference assets used by PFM-TANS
-
-Refresh the release tree with:
-
-```bash
-bash bin/build_release_tree.sh
-```
-
-## Main Entry Points
-
+User-facing entrypoints live in `bin/`:
+- [bin/tans_validate.m](bin/tans_validate.m): preflight validation for targeting inputs and dependencies
 - [bin/tans_run.m](bin/tans_run.m): main targeting workflow
-- [bin/tans_validate.m](bin/tans_validate.m): preflight validation
 - [bin/tans_run_dose.m](bin/tans_run_dose.m): dose workflow
 
 Compatibility wrappers remain at the repo root for `tans_main_workflow`, `tans_module`, and `tans_dose_workflow`.
 
-## Multi-Candidate Targeting
+Example targeting call:
 
-The workflow no longer discards all but the single largest viable target cluster. Instead it ranks candidate clusters using the existing cluster-size logic and keeps up to `cfg.target.maxCandidateTargets`.
+```matlab
+addpath(genpath('/path/to/pfm-tans'));
+outputs = tans_run('/path/to/subject', 'my_subject_config');
+```
 
-When `cfg.target.maxCandidateTargets = 1`, behavior stays aligned with the original single-target workflow except for the new candidate subdirectory level.
+Example dose call:
 
-Candidate outputs are organized as:
+```matlab
+addpath(genpath('/path/to/pfm-tans'));
+doseOutputs = tans_run_dose('/path/to/subject', 'my_dose_config');
+```
+
+## Output Structure
+
+The targeting workflow writes results under:
 
 ```text
 <Subdir>/tans/<TargetName>/
@@ -75,11 +88,7 @@ Candidate outputs are organized as:
     Tolerability/
 ```
 
-`Tolerability/` contains tolerability-map outputs derived from the external TMS-SMART dataset. Trial-level pain, twitch, and visible-twitch ratings are aggregated by SMART `RefLocation`, mapped onto subject-native EEG positions from the SimNIBS head model, interpolated across the subject scalp, and sampled at the final optimized coil-center vertex.
-
-Default study resources:
-- [res0urces/meteyard-l_holmes-2018_TMS-SMART_data.txt](res0urces/meteyard-l_holmes-2018_TMS-SMART_data.txt)
-- subject EEG positions such as `<Subdir>/tans/HeadModel/m2m_<Subject>/eeg_positions/EEG10-20_extended_SPM12.csv`
+When `cfg.target.maxCandidateTargets = 1`, the workflow behaves like the original single-target mode aside from the candidate directory level. When it is greater than `1`, candidate-specific downstream results are written separately and summarized at the target level.
 
 ## Documentation
 
@@ -96,13 +105,3 @@ If you use `pfm-tans`, please cite the original TANS method paper:
 Lynch CJ, Elbau IG, Ng TH, Wolk D, Zhu S, Ayaz A, Bukhari H, Power JD, Liston C. Automated optimization of TMS coil placement for personalized functional network engagement. *Neuron*. 2022;110(20):3263-3277.e4. https://doi.org/10.1016/j.neuron.2022.08.012
 
 This repository is a maintained, usability-focused reorganization and extension of that original approach. The underlying scientific targeting framework originates from the Neuron paper above.
-
-## Example Data
-
-Example data from six healthy participants is on Box: `https://wcm.box.com/v/TANS-ExampleData`
-
-## Notes
-
-- The repo is not intended to change the underlying scientific scoring logic silently.
-- Candidate ranking still uses the current cluster-size ordering from ROI discovery.
-- If a candidate fails downstream, the run continues for the remaining candidates and records the failure in `CandidateSummary.tsv`.
