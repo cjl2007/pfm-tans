@@ -36,6 +36,12 @@ The default PFM-TANS tolerability workflow also expects:
 - a tolerability data file such as `meteyard-l_holmes-2018_TMS-SMART_data.txt`
 - subject EEG positions such as `tans/HeadModel/m2m_<Subject>/eeg_positions/EEG10-20_extended_SPM12.csv`
 
+## Expected Upstream Data Layout
+
+PFM-TANS assumes the subject directory is already organized in the way the workflow expects. The intended upstream source is [pfm-mefmri](https://github.com/cjl2007/pfm-mefmri), or another pipeline that produces a similar anatomy/functional-output layout.
+
+For new users, [examples/tans_example_use.m](../examples/tans_example_use.m) is the best compact orientation for how the repo is called from MATLAB once the subject data and config are in place.
+
 ## Config Editing
 
 At minimum, set:

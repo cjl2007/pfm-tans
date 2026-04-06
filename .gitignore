@@ -8,3 +8,7 @@
 *.gii
 *.stl
 __pycache__/
+
+# Release-shipped packaged resources
+!res0urces/Priors.mat
+!res0urces/LPFC_LH.dtseries.nii

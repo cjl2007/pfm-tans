@@ -16,6 +16,20 @@ report = tans_validate('/path/to/subject', 'tans_config_bd2_salience');
 outputs = tans_run('/path/to/subject', 'tans_config_bd2_salience');
 ```
 
+For new users, the best orientation script is [examples/tans_example_use.m](examples/tans_example_use.m), which shows the expected MATLAB calling pattern for validation, targeting, and dose workflows.
+
+## Data Assumptions
+
+PFM-TANS assumes your subject data are already organized in a structure compatible with the expected anatomical and functional inputs. The most natural upstream source is [pfm-mefmri](https://github.com/cjl2007/pfm-mefmri), or a similar pipeline that produces a comparable subject directory layout and PFM outputs.
+
+In particular, the targeting workflow expects subject-level inputs such as:
+- anatomical data under `anat/`
+- fsLR-derived surfaces and masks in the expected HCP-style locations
+- functional probability maps referenced by `cfg.inputs.probMapsFile`
+- SimNIBS head-model outputs under `tans/HeadModel/`
+
+If you are new to the repo, start by reading [examples/tans_example_use.m](examples/tans_example_use.m) alongside a config in `config/`.
+
 ## Config Files
 
 All user-editable workflow settings are intended to live in `config/`.
@@ -67,6 +81,8 @@ Example dose call:
 addpath(genpath('/path/to/pfm-tans'));
 doseOutputs = tans_run_dose('/path/to/subject', 'my_dose_config');
 ```
+
+The example script [examples/tans_example_use.m](examples/tans_example_use.m) shows these calls in one place and is intended as the main onboarding reference for new users.
 
 ## Output Structure
 
