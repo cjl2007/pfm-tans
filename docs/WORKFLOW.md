@@ -74,6 +74,11 @@ Coordinate assumptions:
 - interpolation is performed directly on the native subject scalp mesh used downstream by search-grid and optimization
 - the active tolerability implementation does not use MNI-space transforms
 
+Preflight behavior:
+
+- `tans_validate(...)` checks prerequisites that must exist before head-model generation
+- the main targeting workflow runs a second preflight after head-model generation or reuse to verify generated `tans/HeadModel/` files such as subject-native EEG positions
+
 Current study-specific assumption:
 
 - SMART trial-level data are aggregated by `RefLocation`

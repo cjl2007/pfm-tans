@@ -22,7 +22,8 @@ for i = 1:numel(Paths)
     addpath(genpath(Paths{i}));
 end
 
-preflight = tans_preflight_check(Subdir, cfg, 'ErrorIfMissing', true, 'Verbose', true);
+preflight = tans_preflight_check(Subdir, cfg, 'Stage', 'preheadmodel', ...
+    'ErrorIfMissing', true, 'Verbose', true);
 
 targetRootDir = fullfile(Subdir, 'tans', cfg.target.name);
 if ~exist(targetRootDir, 'dir')
@@ -40,6 +41,9 @@ skipHeadModel = cfg.headmodel.skipExistingHeadModel && ...
 if ~skipHeadModel
     tans_headmodels_native(Subject, T1w, T2w, fullfile(Subdir, 'tans'), Paths, cfg.headmodel);
 end
+
+tans_preflight_check(Subdir, cfg, 'Stage', 'postheadmodel', ...
+    'ErrorIfMissing', true, 'Verbose', true);
 
 [PialSurfs, WhiteSurfs, MidthickSurfs, MedialWallMasks, SkinSurf, HeadMesh] = ...
     i_prepare_subject_surfaces(Subdir, Subject, cfg);

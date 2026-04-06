@@ -11,8 +11,8 @@ cfg = tans_workflow_defaults(Subdir);
 repoDir = tans_add_repo_paths();
 
 cfg.paths.resourcesRoot = fullfile(repoDir, 'res0urces');
-cfg.paths.mscRoot = '/path/to/msc';
-cfg.paths.simnibsRoot = '/path/to/SimNIBS';
+cfg.paths.mscRoot = '/home/charleslynch/MultiEchofMRI-Pipeline/res0urces/Utilities/msc';
+cfg.paths.simnibsRoot = '/home/charleslynch/SimNIBS-4.5';
 cfg.paths.tansRoot = repoDir;
 cfg.paths.searchSpace = fullfile(repoDir, 'res0urces', 'LPFC_LH.dtseries.nii');
 
@@ -25,7 +25,7 @@ cfg.target.name = 'Salience-LH';
 cfg.target.networkColumn = 13;
 cfg.target.offTargetColumn = 14;
 cfg.target.useAvoidance = true;
-cfg.target.maxCandidateTargets = 1;
+cfg.target.maxCandidateTargets = 3;
 
 cfg.export.brainsightFileName = 'Salience-LH_OptimalTrajectory_BrainSight.txt';
 cfg.export.pythonExe = fullfile(cfg.paths.simnibsRoot, 'simnibs_env', 'bin', 'python3.11');

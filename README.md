@@ -26,7 +26,7 @@ In particular, the targeting workflow expects subject-level inputs such as:
 - anatomical data under `anat/`
 - fsLR-derived surfaces and masks in the expected HCP-style locations
 - functional probability maps referenced by `cfg.inputs.probMapsFile`
-- SimNIBS head-model outputs under `tans/HeadModel/`
+- a subject directory where `tans/HeadModel/` can be generated or reused by the workflow
 
 If you are new to the repo, start by reading [examples/tans_example_use.m](examples/tans_example_use.m) alongside a config in `config/`.
 

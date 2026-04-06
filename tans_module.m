@@ -11,7 +11,8 @@ end
 tans_add_repo_paths();
 cfg = tans_load_config(Subdir, configFile);
 cfg = i_apply_defaults(cfg);
-report = tans_preflight_check(Subdir, cfg, 'ErrorIfMissing', true, 'Verbose', true);
+report = tans_preflight_check(Subdir, cfg, 'Stage', 'preheadmodel', ...
+    'ErrorIfMissing', true, 'Verbose', true);
 end
 
 function cfg = i_apply_defaults(cfg)

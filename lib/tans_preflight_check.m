@@ -3,11 +3,12 @@ function report = tans_preflight_check(Subdir, cfg, varargin)
 %
 % Goal
 %   Verify that required inputs, surfaces, masks, and coil files exist
-%   before expensive simulation/optimization steps.
+%   at the requested workflow stage.
 %
 % Usage
 %   report = tans_preflight_check(Subdir, cfg)
-%   report = tans_preflight_check(Subdir, cfg, 'ErrorIfMissing', tf, 'Verbose', tf)
+%   report = tans_preflight_check(Subdir, cfg, 'Stage', stageName, ...
+%       'ErrorIfMissing', tf, 'Verbose', tf)
 %
 % Inputs
 %   Subdir (char/string)
@@ -15,6 +16,11 @@ function report = tans_preflight_check(Subdir, cfg, varargin)
 %   cfg (struct)
 %       Workflow config struct used by `tans_main_workflow`.
 %   Name-Value:
+%       Stage (char/string, default 'preheadmodel')
+%           `preheadmodel` checks only files that must exist before the
+%           workflow can generate/reuse the subject head model. `postheadmodel`
+%           also checks files produced under `tans/HeadModel/` that are
+%           required for downstream tolerability/search steps.
 %       ErrorIfMissing (logical, default true)
 %           Throw an error when required files are missing.
 %       Verbose (logical, default true)
@@ -33,10 +39,12 @@ if nargin < 1 || isempty(Subdir)
 end
 
 p = inputParser;
+addParameter(p, 'Stage', 'preheadmodel', @(x)ischar(x) || (isstring(x) && isscalar(x)));
 addParameter(p, 'ErrorIfMissing', true, @(x)islogical(x) && isscalar(x));
 addParameter(p, 'Verbose', true, @(x)islogical(x) && isscalar(x));
 parse(p, varargin{:});
 
+stage = lower(char(string(p.Results.Stage)));
 errorIfMissing = p.Results.ErrorIfMissing;
 verbose = p.Results.Verbose;
 
@@ -47,7 +55,6 @@ checks = {};
 checks(end+1, :) = {'PFM prob maps', cfg.inputs.probMapsFile}; %#ok<AGROW>
 checks(end+1, :) = {'Search space', cfg.paths.searchSpace}; %#ok<AGROW>
 checks(end+1, :) = {'Tolerability data file', cfg.tolerability.dataFile}; %#ok<AGROW>
-checks(end+1, :) = {'Tolerability EEG positions file', cfg.tolerability.eegPositionsFile}; %#ok<AGROW>
 
 % Anatomy used by workflow
 t1w = fullfile(Subdir, 'anat', 'T1w', cfg.headmodel.t1File);
@@ -86,6 +93,19 @@ if isfield(cfg, 'export') && isfield(cfg.export, 'writeBrainsightTxt') && cfg.ex
     end
 end
 
+switch stage
+    case 'preheadmodel'
+        % No additional stage-specific checks.
+    case 'postheadmodel'
+        checks(end+1, :) = {'Tolerability EEG positions file', cfg.tolerability.eegPositionsFile}; %#ok<AGROW>
+        checks(end+1, :) = {'Head mesh', ...
+            fullfile(Subdir, 'tans', 'HeadModel', ['m2m_' Subject], [Subject '.msh'])}; %#ok<AGROW>
+        checks(end+1, :) = {'Skin surface', ...
+            fullfile(Subdir, 'tans', 'HeadModel', ['m2m_' Subject], 'Skin.surf.gii')}; %#ok<AGROW>
+    otherwise
+        error('Unsupported preflight stage: %s', stage);
+end
+
 missing = {};
 for i = 1:size(checks, 1)
     if exist(checks{i, 2}, 'file') ~= 2
@@ -96,14 +116,15 @@ end
 report = struct;
 report.Subdir = Subdir;
 report.Subject = Subject;
+report.Stage = stage;
 report.TotalChecks = size(checks, 1);
 report.MissingCount = size(missing, 1);
 report.Missing = missing;
 report.Passed = isempty(missing);
 
 if verbose
-    fprintf('[tans_preflight_check] Checked %d required files. Missing: %d\n', ...
-        report.TotalChecks, report.MissingCount);
+    fprintf('[tans_preflight_check] Stage=%s Checked %d required files. Missing: %d\n', ...
+        report.Stage, report.TotalChecks, report.MissingCount);
     if ~report.Passed
         for i = 1:size(missing, 1)
             fprintf('  - %s: %s\n', missing{i, 1}, missing{i, 2});
