@@ -1,0 +1,336 @@
+{
+  "schema": "pfm-tans-documentation-assets-v2",
+  "publication_permission": "requires_maintainer_review_before_public_distribution",
+  "new_FEM_simulations": 0,
+  "assets": [
+    {
+      "file": "sal-optimization.png",
+      "sha256": "7f9be4a3705b52e5f2e163e4e801624d363a1c61fc4d41793b22eb3c8d6968bf",
+      "source_figure": "01_optimization_refined_layout/Figure_Optimization_GrantWidth.pdf",
+      "source_svg_sha256": "888487d27dfa81d01c642960ae5ba4daa2a44f0f48f9cd366892ab8dc4bcdddb",
+      "label_edited_svg_sha256": "48cbf65b727f50112a4781e6337a95218092bca30a09ab46dd3d91339ac7004b",
+      "renderer": "Original vector layout; label-only edits; librsvg/cairo export",
+      "scientific_panels_unchanged": true,
+      "direct_subject_identifiers": false,
+      "observed_session_inputs": false,
+      "participant_derived_anatomy": true,
+      "example": "sal"
+    },
+    {
+      "file": "sal-optimization.pdf",
+      "sha256": "81d1220cc1e442b1e50f66d507e76d9e21110c5a07a59154cbb1db833a8f6a27",
+      "source_figure": "01_optimization_refined_layout/Figure_Optimization_GrantWidth.pdf",
+      "source_svg_sha256": "888487d27dfa81d01c642960ae5ba4daa2a44f0f48f9cd366892ab8dc4bcdddb",
+      "label_edited_svg_sha256": "48cbf65b727f50112a4781e6337a95218092bca30a09ab46dd3d91339ac7004b",
+      "renderer": "Original vector layout; label-only edits; librsvg/cairo export",
+      "scientific_panels_unchanged": true,
+      "direct_subject_identifiers": false,
+      "observed_session_inputs": false,
+      "participant_derived_anatomy": true,
+      "example": "sal"
+    },
+    {
+      "file": "sal-dosing.png",
+      "sha256": "8b38f9b9813ed3cb957fa68072f7881ce7023e71e0e84b0e3ccfcd5d6c956abe",
+      "source_figure": "02_dosing_min100mm2_55MSO_direct_labels/Figure_Dosing_GrantWidth.pdf",
+      "source_svg_sha256": "72723df2cb6281818e983c87920cf979b4243b9fe64d71f6f53005b1dccaeac2",
+      "label_edited_svg_sha256": "842e541571b352850d5193744553f460209ff30d517ea5d7bdfb5cb32a096a57",
+      "renderer": "Original vector layout; label-only edits; librsvg/cairo export",
+      "scientific_panels_unchanged": true,
+      "direct_subject_identifiers": false,
+      "observed_session_inputs": false,
+      "participant_derived_anatomy": true,
+      "example": "sal",
+      "displayed_rmt_label": "Hypothetical rMT: 50% MSO"
+    },
+    {
+      "file": "sal-dosing.pdf",
+      "sha256": "de26cf3f4bf5c630d68ccc16f1a95b369c9df34f91271e187bb3ec5ca15b73de",
+      "source_figure": "02_dosing_min100mm2_55MSO_direct_labels/Figure_Dosing_GrantWidth.pdf",
+      "source_svg_sha256": "72723df2cb6281818e983c87920cf979b4243b9fe64d71f6f53005b1dccaeac2",
+      "label_edited_svg_sha256": "842e541571b352850d5193744553f460209ff30d517ea5d7bdfb5cb32a096a57",
+      "renderer": "Original vector layout; label-only edits; librsvg/cairo export",
+      "scientific_panels_unchanged": true,
+      "direct_subject_identifiers": false,
+      "observed_session_inputs": false,
+      "participant_derived_anatomy": true,
+      "example": "sal",
+      "displayed_rmt_label": "Hypothetical rMT: 50% MSO"
+    },
+    {
+      "file": "sal-search-replay.mp4",
+      "sha256": "0733aa95f268baabcfdb818e6fe139fee587227494670962a48a89987e2cf890",
+      "renderer": "search/render_search_optimization_replay.py; generic Salience title; parallel frame rendering",
+      "renderer_source_sha256": "223d35b8b5122eba34c0b6aa7a6c6d8430e047eadc0a592f995fb46ae57b1199",
+      "documentation_renderer_sha256": "ece71009270fa9d7572e5d6428638886439287539a5014db291ac094c09bcf0f",
+      "transformation": "None after rendering",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": true,
+      "observed_session_inputs": false,
+      "example": "sal",
+      "same_target_run_as_sal_figures": true
+    },
+    {
+      "file": "sal-search-replay.gif",
+      "sha256": "05f688b6f97e4addff8b65d77156ff0101d620277a642b1b3caa42e6e2b7346f",
+      "renderer": "search/render_search_optimization_replay.py; generic Salience title; parallel frame rendering",
+      "renderer_source_sha256": "223d35b8b5122eba34c0b6aa7a6c6d8430e047eadc0a592f995fb46ae57b1199",
+      "documentation_renderer_sha256": "ece71009270fa9d7572e5d6428638886439287539a5014db291ac094c09bcf0f",
+      "transformation": "FFmpeg: 960px wide, 4 fps, palette conversion",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": true,
+      "observed_session_inputs": false,
+      "example": "sal",
+      "same_target_run_as_sal_figures": true
+    },
+    {
+      "file": "sal-dose-workpage.png",
+      "sha256": "5c8722c0407f83294f613fea1c269b67184333b5ef621d676cc4d1813fcc08bb",
+      "example": "sal",
+      "renderer": "tools/render_dose_workpage.mjs; production HTML UI captured in an isolated browser",
+      "renderer_sha256": "fa070f88d82f9b073970da9aaa1407585a7bb79b0282e20dd756353d350b70ba",
+      "source_field_sha256": "e4072fc2155bb0748355dee343f18181fbe9310d97933e01743179d8d42a1d5b",
+      "motor_field_sha256": "5d9b2e91bbb8c8fe4c02f425626726d271a81444fc8418329b0a8331365fb6b6",
+      "target_weight_map_sha256": "168232b719ad0b470b94788593a71b1dd83c0787e992b1d02c879b2f76e30659",
+      "same_target_run_as_sal_figures": true,
+      "hypothetical_rmt_mso": 50,
+      "illustrative_treatment_mso": 55,
+      "model_selected_mso": 51.2,
+      "transformation": "Production dose UI arranged in three annotated panels; generic Dose selection page heading; Salience remains the example target.",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": true,
+      "observed_session_inputs": false,
+      "session_downloads_saved": false
+    },
+    {
+      "file": "targeting-dose-concept.gif",
+      "sha256": "986d42f567198ace885c95a7f3f7576ed64859afd5ce4ad611fd92bb17810579",
+      "example": "conceptual",
+      "renderer": "tools/render_targeting_dose_concept.py; procedural SVG, Rsvg/cairo and FFmpeg",
+      "renderer_sha256": "399728bbcc234742fdeb9319ac68d58c909c31fb836e6ae86e5467c0e77adc24",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    },
+    {
+      "file": "targeting-dose-concept.png",
+      "sha256": "ef5d491f3c1332afd4ce0b9927dbc5822e015fe6b5a1bb06a81b874d206af152",
+      "example": "conceptual",
+      "renderer": "tools/render_targeting_dose_concept.py; procedural SVG, Rsvg/cairo and FFmpeg",
+      "renderer_sha256": "399728bbcc234742fdeb9319ac68d58c909c31fb836e6ae86e5467c0e77adc24",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    },
+    {
+      "file": "targeting-dose-field-scaling.png",
+      "sha256": "23b488027dd3f6432eb18257fa52950b55293d11f7b7f0c0f9ff2dd11072f448",
+      "example": "field_scaling",
+      "renderer": "tools/render_targeting_dose_field_scaling.py",
+      "renderer_sha256": "4eca19857db7cb90539af8228d98dd433f85d8554cbfee1f3a1e98c2bb1a017f",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    },
+    {
+      "file": "targeting-dose-field-scaling.gif",
+      "sha256": "79a6f32434264523f3c6fc23f7510f6b501219d958821d00964a6ffd53d7f6fe",
+      "example": "field_scaling",
+      "renderer": "tools/render_targeting_dose_field_scaling.py",
+      "renderer_sha256": "4eca19857db7cb90539af8228d98dd433f85d8554cbfee1f3a1e98c2bb1a017f",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    },
+    {
+      "file": "targeting-dose-field-scaling.mp4",
+      "sha256": "d1e1755ba0d2acee7c4f8fd0be462aee92f6f6129c04b1ea241b758eabfadc9a",
+      "example": "field_scaling",
+      "renderer": "tools/render_targeting_dose_field_scaling.py",
+      "renderer_sha256": "4eca19857db7cb90539af8228d98dd433f85d8554cbfee1f3a1e98c2bb1a017f",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    },
+    {
+      "file": "targeting-dose-field-scaling-storyboard.png",
+      "sha256": "e5ac0c869611c9527bf770c79004aa8aa2a176e8dc4e80e29351f5441fa5d37a",
+      "example": "field_scaling",
+      "renderer": "tools/render_targeting_dose_field_scaling.py",
+      "renderer_sha256": "4eca19857db7cb90539af8228d98dd433f85d8554cbfee1f3a1e98c2bb1a017f",
+      "direct_subject_identifiers": false,
+      "participant_derived_anatomy": false,
+      "observed_session_inputs": false,
+      "conceptual_only": true
+    }
+  ],
+  "examples": {
+    "sal": {
+      "target_display_name": "Salience",
+      "target_preparation": {
+        "illustrative": true,
+        "geodesic_dilation_mm": 6,
+        "weights": "nearest original seed extended along geodesics"
+      },
+      "target_map_sha256": "168232b719ad0b470b94788593a71b1dd83c0787e992b1d02c879b2f76e30659",
+      "component_labels_sha256": "b3f605ce4e23b61c9632a4192c271f9171f316fc71c859dadacebdf9d66de786",
+      "coarse_scores_sha256": "c7a33038d9c00ad7a247da5070d0790f39a183a5c6de91ceef546a7c4c82569e",
+      "fine_scores_sha256": "6f81276d59ad4f505b5efdbcbd3cff11d156fc1959afdea73cbadbe0957424a2",
+      "optimization_layout": {
+        "schematic_history_pose_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "displayed_final_pose": 293,
+        "actual_fine_winner_pose": 229,
+        "source_scores_modified": false
+      },
+      "dose_example": {
+        "rmt_measured": false,
+        "rmt_mso": 50,
+        "minimum_hotspot_area_mm2": 100,
+        "maximum_mso": 60,
+        "model_selected_mso": 51.2,
+        "actual_treatment_delivered": false,
+        "selected_pose": 229,
+        "clinical_prescription": false,
+        "displayed_treatment_mso": 55,
+        "displayed_hotspot_area_mm2": 199.1218719482422,
+        "displayed_binary_on_target_fraction": 0.9025560913468107,
+        "displayed_intensity_is_model_optimum": false,
+        "off_target_display": "individual network colors with explicit grouped off-target callouts"
+      },
+      "replay": {
+        "coarse_poses": 228,
+        "fine_poses": 80,
+        "all_308_candidates_rendered": true,
+        "final_pose": 229,
+        "actual_scores_throughout": true,
+        "robustness_evaluated": false,
+        "width": 1920,
+        "height": 1080,
+        "fps": 12,
+        "duration_seconds": 28.417
+      }
+    },
+    "conceptual": {
+      "target_display_name": "Abstract target",
+      "participant_data": false,
+      "simulation_data": false,
+      "interpretation": "Align the field with a fixed target; increasing intensity expands the above-reference footprint of that same field.",
+      "duration_seconds": 14,
+      "frames_per_second": 12,
+      "vector_source": "docs/diagrams/targeting-dose-concept.svg",
+      "vector_source_sha256": "3f196cd475649f47f8184993b7515610983819b65b948721b9becfe33e3e5290"
+    },
+    "field_scaling": {
+      "conceptual_only": true,
+      "participant_data": false,
+      "simulation_data": false,
+      "source": "https://simnibs.github.io/simnibs/build/html/faq.html#what-is-the-di-dt-in-tms-simulations",
+      "threshold_vm": 70.0,
+      "color_scale_vm": [
+        0,
+        200.0
+      ],
+      "selected_illustrative_mso": 48.6,
+      "minimum_hotspot_area": "Illustrative: half the target area in equal-area schematic pixels; not a shipped setting.",
+      "selection": "Maximum binary specificity subject to minimum hotspot area, positive target overlap and 80% illustrative output ceiling; lowest-dose tie break.",
+      "pose_search": "Synthetic translation plus a fixed-position orientation sweep before locking the pose; not FEM solutions or actual optimizer scores.",
+      "duration_seconds": 36,
+      "frames_per_second": 12,
+      "assumption": "E scales exactly with dI/dt; idealized linear dI/dt-to-MSO calibration here.",
+      "area_measure": "Equal-area schematic raster samples, not anatomical mm2.",
+      "validation": "Linear scaling, fixed spatial field, absolute colors, contour values, nested hotspot areas and network label box ownership checked.",
+      "normalized_insets": "Three byte-identical normalized rasters after pose selection; absolute peak values differ.",
+      "network_label_regions": {
+        "Off-target A": [
+          -0.16,
+          -0.8
+        ],
+        "Off-target B": [
+          1.15,
+          -0.02
+        ],
+        "Off-target C": [
+          -0.21,
+          0.8
+        ],
+        "Off-target D": [
+          -1.25,
+          0.05
+        ]
+      },
+      "illustrative_metrics": [
+        {
+          "mso": 30,
+          "peak_vm": 60,
+          "coverage": 0.0,
+          "specificity": null,
+          "hotspot_pixels": 0,
+          "target_hotspot_pixels": 0,
+          "off_target_pixels": 0
+        },
+        {
+          "mso": 36,
+          "peak_vm": 72,
+          "coverage": 0.043076437571850416,
+          "specificity": 1.0,
+          "hotspot_pixels": 1911,
+          "target_hotspot_pixels": 1911,
+          "off_target_pixels": 0
+        },
+        {
+          "mso": 50,
+          "peak_vm": 100,
+          "coverage": 0.5422536798683588,
+          "specificity": 0.9942961064726792,
+          "hotspot_pixels": 24194,
+          "target_hotspot_pixels": 24056,
+          "off_target_pixels": 138
+        },
+        {
+          "mso": 60,
+          "peak_vm": 120,
+          "coverage": 0.7344183215742849,
+          "specificity": 0.8912627202100887,
+          "hotspot_pixels": 36556,
+          "target_hotspot_pixels": 32581,
+          "off_target_pixels": 3975
+        },
+        {
+          "mso": 80,
+          "peak_vm": 160,
+          "coverage": 0.9113901223992967,
+          "specificity": 0.7212015268809532,
+          "hotspot_pixels": 56062,
+          "target_hotspot_pixels": 40432,
+          "off_target_pixels": 15630
+        }
+      ]
+    }
+  }
+}

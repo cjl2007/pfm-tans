@@ -1,0 +1,102 @@
+amplitude_pct_mso,realized_didt_A_per_us,secondary_phase_didt_A_per_us,coil_temp_C,measurement_status,source_image,note
+0,0,,,physical_zero_anchor,,Physical zero-output anchor
+1,0.8,,,interpolated,,Piecewise-linear interpolation between observed points
+2,1.6,,,interpolated,,Piecewise-linear interpolation between observed points
+3,2.4,,,interpolated,,Piecewise-linear interpolation between observed points
+4,3.2,,,interpolated,,Piecewise-linear interpolation between observed points
+5,4,,24,measured,IMG_1569 2.jpeg,
+6,5.8,,,interpolated,,Piecewise-linear interpolation between observed points
+7,7.6,,,interpolated,,Piecewise-linear interpolation between observed points
+8,9.4,,,interpolated,,Piecewise-linear interpolation between observed points
+9,11.2,,,interpolated,,Piecewise-linear interpolation between observed points
+10,13,,24,measured,IMG_1570 2.jpeg,
+11,14.4,,,interpolated,,Piecewise-linear interpolation between observed points
+12,15.8,,,interpolated,,Piecewise-linear interpolation between observed points
+13,17.2,,,interpolated,,Piecewise-linear interpolation between observed points
+14,18.6,,,interpolated,,Piecewise-linear interpolation between observed points
+15,20,,24,measured,IMG_1571 2.jpeg,
+16,21.6,,,interpolated,,Piecewise-linear interpolation between observed points
+17,23.2,,,interpolated,,Piecewise-linear interpolation between observed points
+18,24.8,,,interpolated,,Piecewise-linear interpolation between observed points
+19,26.4,,,interpolated,,Piecewise-linear interpolation between observed points
+20,28,,24,measured,IMG_1572 2.jpeg,
+21,29.4,,,interpolated,,Piecewise-linear interpolation between observed points
+22,30.8,,,interpolated,,Piecewise-linear interpolation between observed points
+23,32.2,,,interpolated,,Piecewise-linear interpolation between observed points
+24,33.6,,,interpolated,,Piecewise-linear interpolation between observed points
+25,35,,24,measured,IMG_1573 2.jpeg,
+26,36.8,,,interpolated,,Piecewise-linear interpolation between observed points
+27,38.6,,,interpolated,,Piecewise-linear interpolation between observed points
+28,40.4,,,interpolated,,Piecewise-linear interpolation between observed points
+29,42.2,,,interpolated,,Piecewise-linear interpolation between observed points
+30,44,,24,measured,IMG_1574 2.jpeg,
+31,45.4,,,interpolated,,Piecewise-linear interpolation between observed points
+32,46.8,,,interpolated,,Piecewise-linear interpolation between observed points
+33,48.2,,,interpolated,,Piecewise-linear interpolation between observed points
+34,49.6,,,interpolated,,Piecewise-linear interpolation between observed points
+35,51,,24,measured,IMG_1575 2.jpeg,
+36,52.6,,,interpolated,,Piecewise-linear interpolation between observed points
+37,54.2,,,interpolated,,Piecewise-linear interpolation between observed points
+38,55.8,,,interpolated,,Piecewise-linear interpolation between observed points
+39,57.4,,,interpolated,,Piecewise-linear interpolation between observed points
+40,59,,24,measured,IMG_1576 2.jpeg,
+41,60.4,,,interpolated,,Piecewise-linear interpolation between observed points
+42,61.8,,,interpolated,,Piecewise-linear interpolation between observed points
+43,63.2,,,interpolated,,Piecewise-linear interpolation between observed points
+44,64.6,,,interpolated,,Piecewise-linear interpolation between observed points
+45,66,,24,measured,IMG_1577 2.jpeg,
+46,67.8,,,interpolated,,Piecewise-linear interpolation between observed points
+47,69.6,,,interpolated,,Piecewise-linear interpolation between observed points
+48,71.4,,,interpolated,,Piecewise-linear interpolation between observed points
+49,73.2,,,interpolated,,Piecewise-linear interpolation between observed points
+50,75,,24,measured,IMG_1578 2.jpeg,
+51,76.4,,,interpolated,,Piecewise-linear interpolation between observed points
+52,77.8,,,interpolated,,Piecewise-linear interpolation between observed points
+53,79.2,,,interpolated,,Piecewise-linear interpolation between observed points
+54,80.6,,,interpolated,,Piecewise-linear interpolation between observed points
+55,82,,24,measured,IMG_1579 2.jpeg,
+56,83.6,,,interpolated,,Piecewise-linear interpolation between observed points
+57,85.2,,,interpolated,,Piecewise-linear interpolation between observed points
+58,86.8,,,interpolated,,Piecewise-linear interpolation between observed points
+59,88.4,,,interpolated,,Piecewise-linear interpolation between observed points
+60,90,,24,measured,IMG_1580 2.jpeg,
+61,91.4,,,interpolated,,Piecewise-linear interpolation between observed points
+62,92.8,,,interpolated,,Piecewise-linear interpolation between observed points
+63,94.2,,,interpolated,,Piecewise-linear interpolation between observed points
+64,95.6,,,interpolated,,Piecewise-linear interpolation between observed points
+65,97,,24,measured,IMG_1581 2.jpeg,
+66,98.8,,,interpolated,,Piecewise-linear interpolation between observed points
+67,100.6,,,interpolated,,Piecewise-linear interpolation between observed points
+68,102.4,,,interpolated,,Piecewise-linear interpolation between observed points
+69,104.2,,,interpolated,,Piecewise-linear interpolation between observed points
+70,106,,24,measured,IMG_1582 2.jpeg,
+71,107.4,,,interpolated,,Piecewise-linear interpolation between observed points
+72,108.8,,,interpolated,,Piecewise-linear interpolation between observed points
+73,110.2,,,interpolated,,Piecewise-linear interpolation between observed points
+74,111.6,,,interpolated,,Piecewise-linear interpolation between observed points
+75,113,,24,measured,IMG_1583 2.jpeg,
+76,114.6,,,interpolated,,Piecewise-linear interpolation between observed points
+77,116.2,,,interpolated,,Piecewise-linear interpolation between observed points
+78,117.8,,,interpolated,,Piecewise-linear interpolation between observed points
+79,119.4,,,interpolated,,Piecewise-linear interpolation between observed points
+80,121,,24,measured,IMG_1584 2.jpeg,
+81,122.4,,,interpolated,,Piecewise-linear interpolation between observed points
+82,123.8,,,interpolated,,Piecewise-linear interpolation between observed points
+83,125.2,,,interpolated,,Piecewise-linear interpolation between observed points
+84,126.6,,,interpolated,,Piecewise-linear interpolation between observed points
+85,128,,24,measured,IMG_1585 2.jpeg,
+86,129.54902,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+87,131.098039,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+88,132.647059,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+89,134.196078,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+90,135.745098,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+91,137.294118,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+92,138.843137,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+93,140.392157,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+94,141.941176,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+95,143.490196,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+96,145.039216,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+97,146.588235,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+98,148.137255,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+99,149.686275,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation
+100,151.235294,,,model_extrapolated,,Measured-only linear slope extrapolation anchored to the 85% observation

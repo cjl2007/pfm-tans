@@ -1,0 +1,17 @@
+amplitude_pct_mso,realized_didt_A_per_us,secondary_phase_didt_A_per_us,coil_temp_C,measurement_status,source_image,note
+5,7,,23,inferred_source_amplitude,IMG_1546 2.jpeg,Display photographed at 0% after the pulse; 7 A/us assigned to the intended preceding 5% protocol step
+10,13,,23,measured,IMG_1547 2.jpeg,
+15,21,,23,measured,IMG_1548 2.jpeg,
+20,29,,23,interpolated,,Linear interpolation between measured 15% and 25% rows
+25,37,,23,measured,IMG_1549 2.jpeg,
+30,45.5,,23,interpolated,,Linear interpolation between measured 25% and 35% rows
+35,54,,23,measured,IMG_1550 2.jpeg,
+40,61,,23,measured,IMG_1551 2.jpeg,
+45,70,,23,measured,IMG_1552 2.jpeg,
+50,77,,23,measured,IMG_1553 2.jpeg; IMG_1554 2.jpeg,Duplicate photographs agree
+55,84,,23,measured,IMG_1555 2.jpeg,
+60,93,,23,measured,IMG_1556 2.jpeg,
+65,101,,23,measured,IMG_1557 2.jpeg,
+70,110,,23,measured,IMG_1558 2.jpeg,
+75,118,,23,measured,IMG_1559 2.jpeg,
+80,125,,23,measured,IMG_1561 2.jpeg,

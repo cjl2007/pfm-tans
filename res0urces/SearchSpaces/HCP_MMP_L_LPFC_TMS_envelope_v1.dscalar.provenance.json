@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "name": "HCP_MMP_L_LPFC_TMS_envelope_v1",
+  "definition": "Fixed Glasser left LPFC TMS envelope",
+  "recovered_from": "/home/charleslynch/Desktop/CIR002/tans/01_TargetPreparation/5d3b328093fa85a4/Salience/weighted/SelectedGyralMask.dscalar.nii",
+  "operation": "approved CIR002 hybrid minus complete CIR002 L_G_front_middle",
+  "cir002_gyral_labels": "/home/charleslynch/Desktop/CIR002/anat/MNINonLinear/fsaverage_LR32k/CIR002.L.aparc.a2009s.32k_fs_LR.label.gii",
+  "vertices": 2248
+}

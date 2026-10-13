@@ -1,0 +1,20 @@
+{
+  "policy_name": "target_projection_coverage_v2_component_aligned",
+  "policy_status": "working_default",
+  "target_weighted_coverage_fraction": 0.85,
+  "coverage_radius_mm": 5.0,
+  "candidate_margin_mm": 5.0,
+  "minimum_design_cluster_vertices": 10,
+  "minimum_design_cluster_area_mm2": 25.0,
+  "minimum_design_cluster_relative_weighted_area_fraction": 0.10,
+  "minimum_centers": 1,
+  "maximum_centers": 40,
+  "mandatory_centroid_anchor": "area_times_target_weight_per_design_component",
+  "scoring_target_scope": "retained_eligible_components",
+  "minimum_target_to_global_peak_ratio": 0.95,
+  "enforce_target_peak_ratio_for_nominal_selection": true,
+  "report_full_network_scores": true,
+  "surface_distance": "scalp_geodesic",
+  "sampling": "deterministic_farthest_first_with_local_refinement",
+  "randomness_used": false
+}

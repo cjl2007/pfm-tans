@@ -1,7 +1,5 @@
-*.asv
 *.log
 *.mat
-*.fig
 *.png
 *.nii
 *.nii.gz
@@ -11,4 +9,9 @@ __pycache__/
 
 # Release-shipped packaged resources
 !res0urces/Priors.mat
-!res0urces/LPFC_LH.dtseries.nii
+!res0urces/SearchSpaces/*.nii
+# Curated README screenshots/plots only; participant/run outputs remain ignored.
+!docs/assets/*.png
+!docs/assets/*.gif
+*.pyc
+.pytest_cache/

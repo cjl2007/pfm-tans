@@ -1,0 +1,86 @@
+{
+  "conceptual_only": true,
+  "participant_data": false,
+  "simulation_data": false,
+  "source": "https://simnibs.github.io/simnibs/build/html/faq.html#what-is-the-di-dt-in-tms-simulations",
+  "threshold_vm": 70.0,
+  "color_scale_vm": [
+    0,
+    200.0
+  ],
+  "selected_illustrative_mso": 48.6,
+  "minimum_hotspot_area": "Illustrative: half the target area in equal-area schematic pixels; not a shipped setting.",
+  "selection": "Maximum binary specificity subject to minimum hotspot area, positive target overlap and 80% illustrative output ceiling; lowest-dose tie break.",
+  "pose_search": "Synthetic translation plus a fixed-position orientation sweep before locking the pose; not FEM solutions or actual optimizer scores.",
+  "duration_seconds": 36,
+  "frames_per_second": 12,
+  "assumption": "E scales exactly with dI/dt; idealized linear dI/dt-to-MSO calibration here.",
+  "area_measure": "Equal-area schematic raster samples, not anatomical mm2.",
+  "validation": "Linear scaling, fixed spatial field, absolute colors, contour values, nested hotspot areas and network label box ownership checked.",
+  "normalized_insets": "Three byte-identical normalized rasters after pose selection; absolute peak values differ.",
+  "network_label_regions": {
+    "Off-target A": [
+      -0.16,
+      -0.8
+    ],
+    "Off-target B": [
+      1.15,
+      -0.02
+    ],
+    "Off-target C": [
+      -0.21,
+      0.8
+    ],
+    "Off-target D": [
+      -1.25,
+      0.05
+    ]
+  },
+  "illustrative_metrics": [
+    {
+      "mso": 30,
+      "peak_vm": 60,
+      "coverage": 0.0,
+      "specificity": null,
+      "hotspot_pixels": 0,
+      "target_hotspot_pixels": 0,
+      "off_target_pixels": 0
+    },
+    {
+      "mso": 36,
+      "peak_vm": 72,
+      "coverage": 0.043076437571850416,
+      "specificity": 1.0,
+      "hotspot_pixels": 1911,
+      "target_hotspot_pixels": 1911,
+      "off_target_pixels": 0
+    },
+    {
+      "mso": 50,
+      "peak_vm": 100,
+      "coverage": 0.5422536798683588,
+      "specificity": 0.9942961064726792,
+      "hotspot_pixels": 24194,
+      "target_hotspot_pixels": 24056,
+      "off_target_pixels": 138
+    },
+    {
+      "mso": 60,
+      "peak_vm": 120,
+      "coverage": 0.7344183215742849,
+      "specificity": 0.8912627202100887,
+      "hotspot_pixels": 36556,
+      "target_hotspot_pixels": 32581,
+      "off_target_pixels": 3975
+    },
+    {
+      "mso": 80,
+      "peak_vm": 160,
+      "coverage": 0.9113901223992967,
+      "specificity": 0.7212015268809532,
+      "hotspot_pixels": 56062,
+      "target_hotspot_pixels": 40432,
+      "off_target_pixels": 15630
+    }
+  ]
+}

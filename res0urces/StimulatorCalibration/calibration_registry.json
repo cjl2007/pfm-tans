@@ -1,0 +1,109 @@
+{
+  "schema_version": "tans-stimulator-calibration-registry-v1",
+  "entries": [
+    {
+      "id": "magventure_x100_c-b60_biphasic_normal",
+      "manufacturer": "MagVenture",
+      "stimulator_model": "MagPro X100",
+      "coil_hardware_name": "MagVenture C-B60",
+      "console_coil_type": "C-B60",
+      "simnibs_coil_model_basename": "MagVenture_C-B60.ccd",
+      "waveform": "biphasic",
+      "current_direction": "normal",
+      "csv": "magventure_x100_c-b60_biphasic_normal/didt_calibration.csv",
+      "value_column": "realized_didt_A_per_us",
+      "mso_range": [
+        0.0,
+        100.0
+      ],
+      "measurement_date": "2026-09-10",
+      "intended_roles": [
+        "sm_hand_motor_threshold"
+      ],
+      "status": "measured_and_estimated_full_curve",
+      "full_curve_mso_range": [
+        0.0,
+        100.0
+      ],
+      "estimated_above_mso": 80.0,
+      "measured_only_linear_slope_A_per_us_per_pct_mso": 1.6042756860242497,
+      "measured_only_linear_intercept_A_per_us": -2.9747925973197162,
+      "source_observation_mso_range": [
+        5.0,
+        80.0
+      ]
+    },
+    {
+      "id": "magventure_x100_cool-b65-ap_biphasic_normal",
+      "manufacturer": "MagVenture",
+      "stimulator_model": "MagPro X100",
+      "coil_hardware_name": "MagVenture Cool-B65 A/P",
+      "console_coil_type": "Cool-B65-A/P",
+      "simnibs_coil_model_basename": "MagVenture_Cool-B65.ccd",
+      "waveform": "biphasic",
+      "current_direction": "normal",
+      "csv": "magventure_x100_cool-b65-ap_biphasic_normal/didt_calibration.csv",
+      "value_column": "realized_didt_A_per_us",
+      "mso_range": [
+        0.0,
+        100.0
+      ],
+      "measurement_date": "2026-09-10",
+      "intended_roles": [
+        "treatment"
+      ],
+      "study_context": [
+        "BD2"
+      ],
+      "status": "measured_and_estimated_full_curve",
+      "full_curve_mso_range": [
+        0.0,
+        100.0
+      ],
+      "estimated_above_mso": 85.0,
+      "measured_only_linear_slope_A_per_us_per_pct_mso": 1.5490196078431373,
+      "measured_only_linear_intercept_A_per_us": -3.117647058823542,
+      "source_observation_mso_range": [
+        5.0,
+        85.0
+      ]
+    },
+    {
+      "id": "magventure_x100_cool-b65_biphasic_normal",
+      "manufacturer": "MagVenture",
+      "stimulator_model": "MagPro X100",
+      "coil_hardware_name": "MagVenture Cool-B65",
+      "console_coil_type": "Cool-B65",
+      "simnibs_coil_model_basename": "MagVenture_Cool-B65.ccd",
+      "waveform": "biphasic",
+      "current_direction": "normal",
+      "csv": "magventure_x100_cool-b65_biphasic_normal/didt_calibration.csv",
+      "value_column": "realized_didt_A_per_us",
+      "secondary_phase_column": "secondary_phase_didt_A_per_us",
+      "mso_range": [
+        0.0,
+        100.0
+      ],
+      "measurement_date": null,
+      "revalidation_date": "2026-09-10",
+      "intended_roles": [
+        "treatment"
+      ],
+      "study_context": [
+        "BioSelect"
+      ],
+      "status": "measured_and_estimated_full_curve",
+      "full_curve_mso_range": [
+        0.0,
+        100.0
+      ],
+      "estimated_above_mso": null,
+      "measured_only_linear_slope_A_per_us_per_pct_mso": 1.5347630922693265,
+      "measured_only_linear_intercept_A_per_us": -3.0379052369077297,
+      "source_observation_mso_range": [
+        5.0,
+        100.0
+      ]
+    }
+  ]
+}

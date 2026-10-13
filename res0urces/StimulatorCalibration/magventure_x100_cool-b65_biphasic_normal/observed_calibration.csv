@@ -1,0 +1,21 @@
+amplitude_pct_mso,realized_didt_A_per_us,secondary_phase_didt_A_per_us,coil_temp_C,measurement_status,source_image,note
+5,4,,23,measured,IMG_1564 2.jpeg,2026-09-10 revalidation point
+10,13,13,23,measured,IMG_1565 2.jpeg,2026-09-10 revalidation point; replaces legacy phase-A value 14 A/us
+15,21,21,25,measured,legacy_calibration_session,
+20,28,28,25,measured,legacy_calibration_session,
+25,35,35,25,measured,legacy_calibration_session,
+30,42,44,23,measured,IMG_1566 2.jpeg,2026-09-10 revalidation point; replaces legacy phase-A value 44 A/us
+35,51,51,25,measured,legacy_calibration_session,
+40,58,59,25,measured,legacy_calibration_session,
+45,66,66,23,measured,IMG_1567 2.jpeg,2026-09-10 revalidation point; agrees with legacy phase-A value
+50,73,75,26,measured,legacy_calibration_session,
+55,82,82,26,measured,legacy_calibration_session,
+60,89,87,23,measured,IMG_1568 2.jpeg,2026-09-10 revalidation point; agrees with legacy phase-A value
+65,96,93,26,measured,legacy_calibration_session,
+70,104,97,26,measured,legacy_calibration_session,
+75,113,99,26,measured,legacy_calibration_session,
+80,120.5,102.5,27,interpolated,legacy_calibration_session,Linear interpolation between 75% and 85%; original 80% display image duplicated the 75% state
+85,128,106,27,measured,legacy_calibration_session,
+90,135,108,27,measured,legacy_calibration_session,
+95,142,113,27,measured,legacy_calibration_session,
+100,151,117,27,measured,legacy_calibration_session,

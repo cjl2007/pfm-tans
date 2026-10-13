@@ -1,93 +1,66 @@
-# Workflow
+# Workflow and review
 
-## Citation
+The recommended pfm-mefmri module and standalone CLI both invoke
+`pipeline/run_pipeline.py`. TANS consumes completed anatomical/PFM derivatives;
+it does not estimate functional networks itself.
 
-If you use this workflow in scientific work, cite the original TANS method paper:
+| Stage | What happens | What to review |
+| --- | --- | --- |
+| `headmodel` | Native T1w/T2w CHARM model, native-space fs_LR surfaces, validated exterior scalp | Segmentation, tissue boundaries, image/surface alignment, coordinate history |
+| `targets` | Categorical/probabilistic maps, anatomical eligibility, components | Correct network/hemisphere, anatomical mask, retained target support |
+| `plan` | Per-target configuration and target-coverage scalp grids | Adequate coverage and sensible candidate centers |
+| `search` | Coarse orientation/position search, local fine refinement, optional placement-error sampling | Objective/peak-gate results, winner, sampled robustness if enabled |
+| `reports` | Pose and target QC, replay, dose lookups, trajectory package, master index | Agreement of simulations, reports, prescription, and hardware |
 
-Lynch CJ, Elbau IG, Ng TH, Wolk D, Zhu S, Ayaz A, Bukhari H, Power JD, Liston C. Automated optimization of TMS coil placement for personalized functional network engagement. *Neuron*. 2022;110(20):3263-3277.e4. https://doi.org/10.1016/j.neuron.2022.08.012
+All stages use Python orchestration plus their configured external tools. The
+wrapper exposes `TANS_START_FROM`, `TANS_STOP_AFTER`, and `TANS_RESUME`; standalone
+uses the corresponding CLI flags. Later stages require earlier artifacts.
+`--stop-after plan` still performs real CHARM/preparation work, not a dry run.
 
-`pfm-tans` is a modernization of the software packaging, configuration, documentation, and practical workflow support around that original method.
+## Selection and prescription
 
-## Main stages
+Coarse/fine search evaluates modeled network engagement across hotspot
+percentiles, not an observed physiological dose-response. Weighted and binary
+objectives differ. The retained target components used for the objective and
+the eligibility/peak checks are recorded in the run artifacts.
 
-1. Preflight validation
-2. Head model generation or reuse
-3. Native-surface preparation
-4. Target-network thresholding
-5. Candidate discovery and ranking
-6. Per-candidate search-grid construction
-7. Per-candidate SimNIBS E-field modeling
-8. Per-candidate coil optimization
-9. Per-candidate tolerability estimation
-10. Run-level candidate summary
+With robustness enabled, the prescription comes from the validated robustness
+selection. With it disabled, the nominal fine winner is used and robustness is
+reported as not evaluated. Missing required robust results never justify an
+automatic fallback. Physical handle canonicalization is a separate, explicitly
+configured magnitude-equivalence choice; it does not change the winning field.
 
-## Candidate discovery
+## Operator handoff
 
-The ROI stage applies:
+1. Review `reports/index.html` and the source anatomical/search/pose figures.
+2. Run the software validation described in [standalone execution](STANDALONE.md)
+   or review its recorded receipts. Resolve failures before handoff.
+3. Copy the complete `shared/export_<subject>/` package, including its shared MRI,
+   target trajectories, dose pages, and manifest. Validate the copied package.
+4. Independently check the imported trajectory and coordinate interpretation in
+   the navigation system, the actual hardware, and registration quality.
+5. At the session, establish rMT at the matching exported SM-Hand reference pose
+   using the specified motor coil. The lookup is not automatically valid for a
+   different measured motor-reference pose.
+6. Lock the observed rMT in the offline dose page. Keep modeled selection distinct
+   from the treatment intensity actually used; confirm that separately before
+   generating a recorded-dose figure.
+7. Save the PDF and JSON outside the immutable operator package in the study's
+   session records. The browser does not write back to a clinical system.
 
-- search-space masking
-- sulcal masking
-- medial-wall exclusion
-- cluster finding
-- ranking by cluster surface area
+## Interpretive boundaries
 
-The new parameter is:
+Head-model fidelity, cortical registration, coil geometry, reference calibration,
+and actual navigation error all affect interpretation. Sampled placement-error
+robustness is not a measurement of registration accuracy. A first modeled
+threshold crossing is not an established minimum effective dose. Passing a
+configured ceiling is not proof of safety or efficacy.
 
-```matlab
-cfg.target.maxCandidateTargets
-```
+The initial HTML rMT is an unconfirmed example. Actual-rMT locking and a
+technician-confirmed intensity produce a **reported record**, not verified device
+delivery or measured cortical activation. The study's approved protocol and
+qualified review remain authoritative.
 
-This keeps the top `K` ranked clusters, up to the number of viable clusters available.
-
-## Per-candidate execution
-
-For each retained candidate, PFM-TANS runs:
-
-- `ROI/`
-- `SearchGrid/`
-- `Optimize/`
-- `Tolerability/`
-
-under:
-
-```text
-<Subdir>/tans/<TargetName>/Candidate1/
-<Subdir>/tans/<TargetName>/Candidate2/
-...
-```
-
-## Tolerability metric
-
-The active practical tolerability metric is based on the external TMS-SMART dataset rather than an eye-distance proxy.
-
-Implementation details:
-
-- source ratings are aggregated from trial-level SMART data by `RefLocation`
-- homologous study labels are mapped onto subject-native EEG positions exported with the SimNIBS head model
-- tolerability values are interpolated across scalp vertices with inverse-distance weighting by default
-- final candidate scores are sampled at the optimized coil-center scalp vertex
-- output location: `Candidate*/Tolerability/TolerabilitySample.txt`
-
-Coordinate assumptions:
-
-- subject-native EEG positions are read from `m2m_<Subject>/eeg_positions/EEG10-20_extended_SPM12.csv`
-- interpolation is performed directly on the native subject scalp mesh used downstream by search-grid and optimization
-- the active tolerability implementation does not use MNI-space transforms
-
-Preflight behavior:
-
-- `tans_validate(...)` checks prerequisites that must exist before head-model generation
-- the main targeting workflow runs a second preflight after head-model generation or reuse to verify generated `tans/HeadModel/` files such as subject-native EEG positions
-
-Current study-specific assumption:
-
-- SMART trial-level data are aggregated by `RefLocation`
-- pooled homologous labels are expanded onto one or more subject EEG labels
-- the current native-EEG mapping uses `Inion -> Iz`, `TPJ -> TP7/TP8`, `LatIn -> I1/I2`, `LatOc -> PO9/PO10`, `V5 -> PO7/PO8`, and `ATL -> FT9/FT10`
-
-## Failure handling
-
-If a candidate fails in a downstream stage, PFM-TANS records the error and continues to the next candidate. The final status appears in:
-
-- `CandidateSummary.tsv`
-- `CandidateSummary.mat`
+See [search settings](two_stage_search_configuration.md),
+[robustness](robustness_optional.md), [dose records](measured_dose_records.md),
+and [operator packaging](operator_export_package.md).
